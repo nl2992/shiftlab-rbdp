@@ -1,0 +1,118 @@
+# Paper 4 theory_v2 — publication decision
+
+**Date:** 2026-11-11. **Branch:** `research/paper4-causal-premium-theory-2026-11-10` (HEAD at writing `95e6151d`).
+**Decision owner:** lead. Reviews are same-family / provisional (BL-1). Outcomes are main-track only
+(`AGENTS.md` publication-outcome rule).
+
+## Decision: **NO-GO — existing results too narrow**
+
+No substantial new theorem survived correctness and novelty review. The proved results that pass correctness review
+are confined to one label (N1, SP1, Z1/W) or to static evidence with free labels (S0). Each reduces to known
+machinery (LP duality over mixed plans, sequential stochastic domination, single-observation composite testing,
+geometric sums). The only general-budget direction the data supported, a relative premium that grows with budget,
+was examined in a bounded theorem attempt. Where it could be analysed (deterministic alternation), the relative
+premium was proved to vanish as horizon or budget grows (Thm A, Thm V; unreviewed). The rise seen at T ≤ 10 is a
+finite-resource effect.
+
+## Answers to the directive's ten questions
+
+| # | Question | Answer |
+|---|---|---|
+| 1 | Are Z1 and C3 correct? | **Z1: yes** (re-audited; sharpened to W*). **C3: the original formula is wrong**; C3′ is wrong at T = 2; the correct form C3″ is proved and verified (468/468 cells; odd T ⇒ Γ = 0 now proved) |
+| 2 | What is already prior art? | Lemma R/R′, Zc, P and S1: LP duality over mixed plans (Walraven–Spaan) plus sequential stochastic domination (Doerr §1.8; Strassen). The B = 1 results are single-observation composite tests combined by an LP over query times (Karlin–Rubin-type MLR, cited from memory). The definition of Γ is an instance of Fauß–Zoubir–Poor's rectangular history-adaptive null families; the gap to the IID point is not studied there. General-B mechanisms reduce to Fauß–Zoubir–Poor, Waudby-Smith–Ramdas betting and Ville's inequality. See `PRIOR_ART_AUDIT.md`, `GENERAL_B_PREMIUM.md` T4 |
+| 3 | Is the multi-label zero-premium conjecture true? | **No.** Symmetric stationary persistent ⇒ Γ = 0 fails for every α (CE-12, α = 25/32) and at practical α (CE-14: Γ = 1.28e-4 at α = 5/16; Γ > 0 down to α = 21/128). TP2 + M_marg ⇒ Γ = 0 fails as well |
+| 4 | Smallest counterexample; strongest surviving restricted theorem? | Smallest at α ≤ 1/2 with B = 4: T = 8, B = 4, d = 2, t = 1/4, e = (1/1000, 999/1000), stationary prior, c = k = 0 (lead-verified). Strongest surviving restricted theorem: **S0**, static alternative with free labels (c = 0) ⇒ Γ = 0 for any T, B, d, k, α (reviewed; minor corrections). Static with c > 0 and B ≥ 2 is an open lemma (S+; no counterexample in about 42k cells) |
+| 5 | Can the positive premium be extended to stochastic HMMs? | **Yes at B = 1:** SP1 gives an exact closed form for symmetric anti-persistent chains with t ∈ (1/2, 1], any d, c, k (reviewed: 2,420/2,420 adversarial certified cells; one corollary corrected at T = d + 1). Positive iff d is odd and costs are small; it decays like r^d. **At B ≥ 2:** only identity bounds; "even d ⇒ Γ = 0" fails at B = 2 (CE-15); Γ is non-monotone in B and in k |
+| 6 | Is there a structural characterisation linking both sides? | A qualitative one. Score monotonicity of P_A(y)G(y)⁺ organises every positive cell found into four mechanisms: exchangeable evidence (free, proved), sign-reversing evidence (priced, exact at B = 1), correlated coin, and persistence flip penalty (witnesses only). It is a taxonomy, not a theorem: sufficient, not necessary (50/103 non-monotone cells still have Γ = 0), and not proved exhaustive (`STRUCTURAL_CHARACTERIZATION.md`) |
+| 7 | Does it establish a new mathematical result? | No new result at main-track level. The non-routine content is short: S0's G/D induction, SP1's shared-window case analysis and odd-d parity, the B = 1 ceiling Γ ≤ (C₀ − V*_IID)/2, and Thm A/V (unreviewed). Each is a specialisation of known machinery |
+| 8 | Are the assumptions natural and practically meaningful? | Partly. α ≤ 1/2, the adaptive null class and static exchangeable evidence are natural. B = 1 is a degenerate budget; free labels (S0) is a convenience assumption; anti-persistence with odd release lag (the proved positive driver) has no practical motivation in the files |
+| 9 | Significant enough for ICML/NeurIPS/ICLR? | **No.** The significance review scored it 3/10 as it stands. The one result that could change this (a non-vanishing relative premium as T, B grow) was attempted and points the other way at deterministic alternation |
+| 10 | What remains unproved or unsupported? | Lemma S+ (static, c > 0, B ≥ 2). A lower bound on the relative premium for t < 1 (conjectured to vanish too, unproved). Independent review of Thm A, Thm V and Lemma A. Mechanisms M2/M3 as theorems. Exactness of fixed-calendar values for T − B ≥ 5 (they are upper bounds there). The (T, B) = (9, 6) cell in the general-B grid did not certify. All evidence is synthetic with T ≤ 14; there is no real-data or deployment-stream evidence |
+
+## Closure of the mandatory work packages
+
+| WP | Outcome | Evidence |
+|---|---|---|
+| A | Verified: all prior proofs survive; C3′ corrected to C3″ | `THEOREM_PROOF_AUDIT.md` |
+| B | Conjecture falsified (incl. α ≤ 1/2); restricted theorem S0 proved; irreducible lemma S+ stated | `MULTILABEL_ZERO_PREMIUM.md`, `REVIEW_S0.md` |
+| C | SP1 proved (B = 1); B ≥ 2 bounds only; relative-premium scaling measured; general-B attempt negative | `STOCHASTIC_POSITIVE_PREMIUM.md`, `REVIEW_SP1.md`, `RELATIVE_PREMIUM_SCALING.md`, `GENERAL_B_PREMIUM.md` |
+| D | Qualitative characterisation; no unified theorem | `STRUCTURAL_CHARACTERIZATION.md` |
+| E | Root-mixture verified; A3 read (no FCG gain); FCG kept as the reference oracle; ledgers reconciled | `ENGINEERING_COMPLETION.md` |
+| F | Every result reduces to known mechanisms | `PRIOR_ART_SOURCES.md`, `PRIOR_ART_AUDIT.md` |
+| G | Three review roles completed (correctness ×3, novelty, significance) | `REVIEW_REPORT.md` and `REVIEW_*.md` |
+| H | No manuscript (no main-track candidate survived); `tech-paper-template` / `pre-submission-reviewer` not run for that reason | this file |
+
+**Not done, with reasons:** a cross-family review (BL-1, no backend loaded); a manuscript (decision is NO-GO).
+
+---
+
+## Reopened 2026-11-11 (lead correction; the decision above is suspended, not deleted)
+
+The NO-GO above rested on a mis-framed theorem target. Recorded errors:
+1. **Wrong limit.** The locked scaling rule targeted a premium bounded away from 0 as B → ∞, the label-rich limit,
+   where asymptotic theory already predicts no adversary advantage. Paper 4's setting is budgeted (label-scarce).
+2. **Wrong family for the attempt.** The bounded attempt analysed deterministic alternation (t = 1), the degenerate
+   case where one label reveals the whole future, so the value of information grows like T and the relative premium
+   must vanish (Thm A). That does not transfer to mixing chains.
+3. **Unsupported claim.** The lead stated in conversation (and `NEXT_ACTION.md` item 1 said) that t < 1 was
+   "expected to fail". The committed data contradict this: at t = 3/4 and t = 9/10 the relative premium is flat in T
+   at fixed B (e.g. t = 3/4, B = 1: 0.25 for T = 5–10; t = 9/10, B = 6: 0.62–0.63 for T = 7–9;
+   `results/wpC2_relative_premium_v1_compact.json`).
+**Status: decision REOPENED** pending the locked salvage protocol `SALVAGE_PLAN.md`.
+
+---
+
+## Salvage outcome under the locked criteria (2026-11-11 04:55)
+
+Inputs: `MIXING_PREMIUM_THEOREM.md` (P1), `REVIEW_MIXING.md` (P5), `REVIEW_GENERAL_B.md` (P2),
+`PRIOR_ART_TWO_REGIME.md` (P4), `MIXING_SCALING.md` + `results/wpM_scaling_v1_compact.json` (P3: 926 ok, 576 not run
+at the wall budget, 9 timeouts, 1 error without message at t=2/3, d=3, k=1/50, B=4, T=9). Lead re-computed
+t=3/4, B=3, T=9, α=1/10: ρΓ = 0.18346 (run: 0.183).
+
+| Clause (`SALVAGE_PLAN.md`) | Status |
+|---|---|
+| CONDITIONAL GO (a): S-1 proved and reviewed for B = 1 and B = 2, uniform in T | **Met with qualifications.** M1 (B = 1): accepted; ρΓ α-free for α ≤ 1/2, uniform in T, limit (1−r)/2. M4 (B = 2): accepted with corrections; holds only for k = 0, odd d, c < g r^d/(16(1+r)) and T ≥ T₀ (T₀ = 6, 10, 21, 37 at t = 2/3, 3/4, 0.85, 9/10) |
+| CONDITIONAL GO (b): S-2 reviewed | **Met** (Thm A/V accepted with fixable gaps) |
+| CONDITIONAL GO (c): P3 shows ρΓ flat in T for B ≤ 4 in all three t | **Not met.** B = 1 flat; B = 2 flat for t = 2/3, 3/4, still falling at t = 9/10 (0.173 at T = 15); B = 3, 4 at k = 0, d = 1 still falling at T = 12 in every t (e.g. t = 3/4: B = 3 0.275 → 0.149, B = 4 0.29 → 0.229). Some k = 1/50 cells plateau over T = 7–9 only |
+| NO-GO triggers | **Not met**: no certified collapse beyond T = 12 (B ≥ 3 reach only T = 12), no counterexample at B ≤ 2, no prior publication |
+
+**Outcome: neither CONDITIONAL GO nor NO-GO applies cleanly; the decision remains open.** Per the plan, no outcome
+is softened. The single obligation that would settle it: **a lower bound on ρΓ for general B that is uniform in T**
+(equivalently, Γ/α bounded away from 0 as T → ∞ at B ≥ 3, by M2). If proved and reviewed, clause (c) becomes moot
+and the CONDITIONAL GO proof side extends to general B; if B ≥ 3 data at larger T show ρΓ → 0, NO-GO.
+
+## Proof progress addendum (2026-11-12)
+
+Theorems M6–M9 now give independently adversarially reviewed uniform-in-horizon lower bounds for B=3 through B=6
+on the same explicit open rectangle (`r in (1/200,1/100)`, `g in (2/5,1/2)`, `d=1`, `c=k=0`, `alpha=1/10`):
+`rho_Gamma>=19/101` for B=3, `>=13/84` for B=4, `>=40/303` for B=5 (each for `T>=16`), and `>=13/118` for B=6
+for `T>=20`. Corollary M10 combines these with M1/M4 to establish S-1's explicit bounded-budget form `Bbar=6`,
+`T0=20`, and `rho_Gamma>=0.10` on this rectangle. B>=7 and growing-budget behavior remain outside this result.
+The overall publication decision remains open: one certified cell inside the new region is still running, and the
+prior-art review has not specifically audited the M6–M10 multi-position-null proof route against the relevant
+active-testing literature. The criteria in `SALVAGE_PLAN.md` are unchanged. The B=2 T=17 result is finite-horizon
+context only.
+
+## Focused P4 novelty update (2026-11-12)
+
+A fresh-context focused review of the M6–M10 route returned **PROCEED, 6/10** and found no published paper
+containing the stated uniform-in-horizon HMM decision-value separation. The closest work supplies established
+minimax and null-mixture foundations but does not compare the IID-fair and causal-null constrained VOI values.
+The exact scope and caveats are recorded in `NOVELTY_REVIEW_2026-11-12.md`. In particular, the current certificate
+does not show that outcome-reactive adversary adaptation itself causes the gap; it proves a premium for requiring
+causal-null validity. Reviewer model identity was not exposed, so the novelty review remains provisional.
+
+The decision stays open pending the certified in-region consistency cell and full application of the locked
+criteria. This update does not amend `SALVAGE_PLAN.md` or assert ICML main-track sufficiency.
+
+## Arbitrary-budget proof update (2026-11-13)
+
+The new M11 proof gives a positive lower bound for each fixed budget on an open region whose radius depends on B,
+and an explicit simultaneous range `B<=floor((1056r)^(-1/4))`. A fresh same-family adversarial proof audit
+returned PASS; this remains provisional under the review-assurance rule. A focused novelty review of M11 is
+underway.
+
+The earlier B=3, T=16 cell (`r=0.008`, `g=0.49`) timed out at 3,600 seconds. That point lies in the M6/M10
+rectangle but is outside M11's B=3 radius `r<1/13840`, so it is not an M11 consistency check. A new cell at
+B=3, T=9, `r=1/100000`, `g=0.49` is running inside both M11 regions. Until it produces a certified result and
+the novelty review finishes, the decision remains open; the GO/NO-GO criteria are unchanged.

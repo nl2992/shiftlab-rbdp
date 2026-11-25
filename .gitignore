@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+build/
+dist/
+outputs/
+*.aux
+*.log
+*.out
+*.blg
+*.fls
+*.fdb_latexmk
