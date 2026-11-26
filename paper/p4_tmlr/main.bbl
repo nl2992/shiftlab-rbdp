@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -25,11 +25,29 @@ Bo{\v{s}}ansk{\'y}, B., Kiekintveld, C., Lis{\'y}, V., and
 \newblock \emph{Journal of Artificial Intelligence Research}, 51:\penalty0
   829--866, 2014.
 
+\bibitem[Chow \& Pavone(2013)Chow and Pavone]{chow2013stochastic}
+Chow, Y.-L. and Pavone, M.
+\newblock Stochastic optimal control with dynamic, time-consistent risk
+  constraints.
+\newblock In \emph{Proceedings of the 2013 American Control Conference}, pp.\
+  390--395, 2013.
+\newblock \doi{10.1109/ACC.2013.6579868}.
+
 \bibitem[Fau{\ss} et~al.(2020)Fau{\ss}, Zoubir, and Poor]{fauss2020minimax}
 Fau{\ss}, M., Zoubir, A.~M., and Poor, H.~V.
 \newblock Minimax optimal sequential hypothesis tests for {M}arkov processes.
 \newblock \emph{The Annals of Statistics}, 48\penalty0 (5):\penalty0
   2599--2621, 2020.
+
+\bibitem[Ho et~al.(2024)Ho, Becker, Kraske, Laouar, Feather, Rossi, Lahijanian,
+  and Sunberg]{ho2024recursively}
+Ho, Q.~H., Becker, T., Kraske, B., Laouar, Z., Feather, M., Rossi, F.,
+  Lahijanian, M., and Sunberg, Z.
+\newblock Recursively-constrained partially observable {M}arkov decision
+  processes.
+\newblock In \emph{Proceedings of the Fortieth Conference on Uncertainty in
+  Artificial Intelligence}, volume 244 of \emph{Proceedings of Machine Learning
+  Research}, pp.\  1658--1680, 2024.
 
 \bibitem[Hor{\'a}k et~al.(2023)Hor{\'a}k, Bo{\v{s}}ansk{\'y},
   Kov{\v{a}}{\v{r}}{\'\i}k, and Kiekintveld]{horak2023solving}
@@ -44,6 +62,12 @@ Howard, S.~R., Ramdas, A., McAuliffe, J., and Sekhon, J.
 \newblock Time-uniform, nonparametric, nonasymptotic confidence sequences.
 \newblock \emph{The Annals of Statistics}, 49\penalty0 (2):\penalty0
   1055--1080, 2021.
+
+\bibitem[Isom et~al.(2008)Isom, Meyn, and Braatz]{isom2008piecewise}
+Isom, J.~D., Meyn, S.~P., and Braatz, R.~D.
+\newblock Piecewise linear dynamic programming for constrained {POMDP}s.
+\newblock In \emph{Proceedings of the Twenty-Third AAAI Conference on
+  Artificial Intelligence}, pp.\  291--296, 2008.
 
 \bibitem[Iyengar(2005)]{iyengar2005robust}
 Iyengar, G.~N.
@@ -108,6 +132,20 @@ Ono, M., Pavone, M., Kuwata, Y., and Balaram, J.
 Ramdas, A., Gr{\"u}nwald, P., Vovk, V., and Shafer, G.
 \newblock Game-theoretic statistics and safe anytime-valid inference.
 \newblock \emph{Statistical Science}, 38\penalty0 (4):\penalty0 576--601, 2023.
+
+\bibitem[Santana et~al.(2016)Santana, Thi{\'e}baux, and
+  Williams]{santana2016rao}
+Santana, P., Thi{\'e}baux, S., and Williams, B.
+\newblock {RAO}*: An algorithm for chance-constrained {POMDP}'s.
+\newblock In \emph{Proceedings of the Thirtieth AAAI Conference on Artificial
+  Intelligence}, pp.\  3308--3314, 2016.
+\newblock \doi{10.1609/aaai.v30i1.10423}.
+
+\bibitem[Sethi et~al.(2026)Sethi, Sagar, Agrawal, Basu, and
+  Karthik]{sethi2026asymptotically}
+Sethi, A., Sagar, K.~S., Agrawal, S., Basu, D., and Karthik, P.~N.
+\newblock Asymptotically optimal sequential testing with {M}arkovian data.
+\newblock arXiv:2602.17587, 2026.
 
 \bibitem[Thomas et~al.(2015)Thomas, Theocharous, and
   Ghavamzadeh]{thomas2015high}
